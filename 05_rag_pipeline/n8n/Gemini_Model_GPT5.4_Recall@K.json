@@ -1,0 +1,581 @@
+{
+  "name": "Gemini_Model_GPT5.4_Recall@K",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3fdfc021-9239-4556-9bdb-d215c7db412c",
+      "name": "When clicking ‘Execute Workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1856,
+        -256
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Please identify the appropriate privacy taxonomy for this GitHub issue:\n\n[ISSUE DETAILS]\nIssue ID: {{ $('Issue1').item.json.Issue_ID }}\nTitle: {{ $('Issue1').item.json.Title }}\nBody: {{ $('Issue1').item.json.Body }}\n\n[REFERENCE EXAMPLES]\nHere are some similar issues from our database:\n{{ $('Format').item.json.all_formatted_examples }}",
+        "options": {
+          "systemMessage": "=You are a Privacy Expert. Your primary goal is to IDENTIFY the correct Privacy-by-Design Taxonomy for GitHub issues.\n\nIMPORTANT IDENTIFICATION INSTRUCTIONS:\n1. First, analyze the issue to determine if it is related to Privacy. \n   - If it is NOT a privacy issue (e.g., a general UI bug, performance issue, or unrelated feature request), set \"is_privacy_issue\" to false and leave \"Ranked_Taxonomy_IDs\" as an empty array [].\n   - If it IS a privacy issue, set \"is_privacy_issue\" to true and you MUST use the provided context from the 10 reference examples and your tools to identify the correct taxonomy definitions.\n2. Rank the Top 6 Taxonomy IDs: You must select exactly 6 most relevant taxonomy definitions from the retrieved context. Extract the exact value from the \"taxonomy_id\" field (e.g., \"1.1.1.1.1\") for each selection. Order them strictly by your confidence level (Index 0 is Rank 1 / Most confident, and Index 5 is Rank 6 / Least confident). This is critical for evaluating Recall@k.\n3. Pay close attention to the 'path' and 'top_level_category' metadata. Use this hierarchical context (e.g., \"1_Notice > 1.1_Users...\") to ensure the issue matches the broader privacy concept.\n4. You MUST provide a clear, analytical \"Reason\" explaining why the issue was identified with those specific taxonomy IDs in that ranked order, or why it was deemed not a privacy issue.\n\nOUTPUT FORMAT:\nRespond ONLY with a valid JSON object. Do not include any markdown formatting blocks (like ```json) or conversational text. Keep the original Issue_ID, Title, and Body exactly as provided. Use exactly this structure:\n\n{\n  \"Issue_ID\": \"Keep exact ID\",\n  \"Issue_Title\": \"Keep exact Title\",\n  \"Issue_Body\": \"Keep exact Body\",\n  \"is_privacy_issue\": true,\n  \"Ranked_Taxonomy_IDs\": [\"1.1.1.1.1\", \"2.1\", \"3.2.1\", \"4.5\", \"1.2\", \"6.1\"],\n  \"Reason\": \"Explain the justification for the identification and your ranking order here.\"\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        576,
+        -256
+      ],
+      "id": "183fda4e-e528-4519-84b4-95f8cf295f06",
+      "name": "AI Agent",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Use this tool to search the Privacy-by-Design taxonomy database so the issue can be identified. You MUST pass your search keywords as a simple, plain text string. Do not use JSON formatting for the query.",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "pbd-taxonomy-QA-gemini",
+          "mode": "list",
+          "cachedResultName": "pbd-taxonomy-QA-gemini"
+        },
+        "topK": 10,
+        "options": {
+          "contentPayloadKey": "label",
+          "metadataPayloadKey": "taxonomy_id"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.3,
+      "position": [
+        672,
+        -32
+      ],
+      "id": "da3b9c3e-71eb-4ff9-85ff-f2b2b551725e",
+      "name": "Taxonomy tools",
+      "credentials": {
+        "qdrantApi": {
+          "id": "WCmDplRgQBiPAwh7",
+          "name": "QdrantApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fileSelector": "=C:\\Users\\YOUR_WINDOWS_USER\\.n8n-files\\test1.xlsx",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        -1360,
+        -256
+      ],
+      "id": "510f901e-adbd-4731-8063-bf1b9f5771ff",
+      "name": "Read/Write Files from Disk"
+    },
+    {
+      "parameters": {
+        "operation": "xlsx",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -1168,
+        -256
+      ],
+      "id": "d2b503d4-66d9-4cab-9631-7daca992dc52",
+      "name": "Input_data"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -720,
+        -256
+      ],
+      "id": "f8a91f3e-5198-454c-8973-0c71e0b63a69",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3ce3e99b-b8c5-4414-8067-1c28da83c921",
+              "name": "Issue_ID",
+              "value": "={{ $json.Issue_ID }}",
+              "type": "number"
+            },
+            {
+              "id": "768622ef-f466-4357-8522-1ebe78cc91b0",
+              "name": "Title",
+              "value": "={{ $json.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "84a6e310-77db-4539-a3db-8157a1140a46",
+              "name": "Body",
+              "value": "={{ $json.Body }}",
+              "type": "string"
+            },
+            {
+              "id": "eddb681c-8269-4995-87f0-4a036bdc4ef1",
+              "name": "State",
+              "value": "={{ $json.State }}",
+              "type": "string"
+            },
+            {
+              "id": "94a2b648-3b1b-4088-a817-2b94f928aa15",
+              "name": "text_to_embed",
+              "value": "={{ ($json.Title + \"\\n\\n\" + ($json.Body || \"\")).substring(0, 24000) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -352,
+        -320
+      ],
+      "id": "c844181f-817d-4abc-b8de-599d904d44c5",
+      "name": "Issue1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3ce3e99b-b8c5-4414-8067-1c28da83c921",
+              "name": "Issue_ID",
+              "value": "={{ $json.Issue_ID }}",
+              "type": "number"
+            },
+            {
+              "id": "768622ef-f466-4357-8522-1ebe78cc91b0",
+              "name": "Title",
+              "value": "={{ $json.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "84a6e310-77db-4539-a3db-8157a1140a46",
+              "name": "Body",
+              "value": "={{ $json.Body }}",
+              "type": "string"
+            },
+            {
+              "id": "eddb681c-8269-4995-87f0-4a036bdc4ef1",
+              "name": "State",
+              "value": "={{ $json.State }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -960,
+        -256
+      ],
+      "id": "c2b89a01-1c3b-4537-9081-279228510380",
+      "name": "All_data_Issue"
+    },
+    {
+      "parameters": {
+        "operation": "xlsx",
+        "binaryPropertyName": "result",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        96,
+        -512
+      ],
+      "id": "9554f669-ec12-46ae-939c-02efaf30a06a",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Qdrant search response\nconst inputData = $input.first().json;\nlet formatted_examples = \"\";\n\n// 'result' holds the retrieved examples (count = limit in the search node)\nconst searchResults = inputData.result || [];\n\nsearchResults.forEach((item, index) => {\n    const p = item.payload || {};\n    \n    // Labels may be an array or a comma-separated string\n    let labels = \"None (Not a Privacy Issue)\";\n    \n    if (p.true_labels) {\n        if (Array.isArray(p.true_labels) && p.true_labels.length > 0) {\n            labels = p.true_labels.join(\", \");\n        } else if (typeof p.true_labels === 'string' && p.true_labels.trim() !== '') {\n            labels = p.true_labels;\n        }\n    }\n\n    // Body on one line, first 200 characters\n    const cleanBody = (p.body || \"\").replace(/\\n/g, \" \").substring(0, 200);\n\n    formatted_examples += `Example ${index + 1}:\\n`;\n    formatted_examples += `Title: ${p.title}\\n`;\n    formatted_examples += `Body: ${cleanBody}...\\n`;\n    formatted_examples += `Correct Labels: ${labels}\\n`;\n    formatted_examples += `-------------------\\n`;\n});\n\n// Return a single item: all_formatted_examples\nreturn [{\n    json: {\n        all_formatted_examples: formatted_examples\n    }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        -320
+      ],
+      "id": "4d385028-927b-4e27-a96b-54bc2412b365",
+      "name": "Format"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  let rawOutput = item.json.output || \"\";\n  \n  // Strip Markdown code fences in case the model added them\n  rawOutput = rawOutput.replace(/```json/gi, \"\").replace(/```/g, \"\").trim();\n  \n  try {\n    // Attempt 1: Standard Parse\n    const parsed = JSON.parse(rawOutput);\n    return { json: formatOutput(parsed) };\n  } catch (e) {\n    try {\n      // Attempt 2: Clean common AI mistakes (like literal newlines)\n      const cleaned = rawOutput.replace(/\\n/g, \"\\\\n\").replace(/\\r/g, \"\\\\r\");\n      const parsed = JSON.parse(cleaned);\n      return { json: formatOutput(parsed) };\n    } catch (e2) {\n      // Return error for your Excel log\n      return {\n        json: {\n          Issue_ID: \"ERROR\",\n          error: \"JSON Syntax Error: AI returned malformed string\",\n          original_output: rawOutput\n        }\n      };\n    }\n  }\n});\n\nfunction formatOutput(data) {\n  return {\n    Issue_ID: data.Issue_ID,\n    Issue_Title: data.Issue_Title,\n    Issue_Body: data.Issue_Body, \n    is_privacy_issue: data.is_privacy_issue || false,\n    \n    // The prompt returns Ranked_Taxonomy_IDs\n    // Join as plain text for Excel, e.g. \"1.1.1.1.1, 2.1, 3.2.1\"\n    Ranked_Taxonomy_IDs: Array.isArray(data.Ranked_Taxonomy_IDs) ? data.Ranked_Taxonomy_IDs.join(', ') : (data.Ranked_Taxonomy_IDs || \"\"),\n    \n    Reason: data.Reason || \"\"\n  };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -352,
+        -512
+      ],
+      "id": "60cc08c8-76cb-4c48-ad74-3cbaf955dd5b",
+      "name": "Cleaner_ JSON Parser"
+    },
+    {
+      "parameters": {
+        "jsCode": "return{\n  \"taxonomy_title\": \"PbD Issues\",\n  \"root\": {\n    \"1_Notice\": {\n      \"1.1_Users\": {\n        \"1.1.1_Notice_content\": {\n          \"1.1.1.1_Data_collection\": {\n            \"1.1.1.1.1\": { \"label\": \"Unclear purpose for voice recording\", \"sources\": [1, 2, 6, 7] },\n            \"1.1.1.1.2\": { \"label\": \"Users presented with unclear agreement\", \"sources\": [1, 6, 7] },\n            \"1.1.1.1.3\": { \"label\": \"Unclear primary purpose for CCTV recording\", \"sources\": [1, 2, 3, 6, 7] }\n          },\n          \"1.1.1.2_Data_retention\": {\n            \"1.1.1.2.1\": { \"label\": \"Unclear retention period criteria\", \"sources\": [1, 2, 6, 7] }\n          },\n          \"1.1.1.3_Data_usage\": {\n            \"1.1.1.3.1\": { \"label\": \"Unclear user personal data usage\", \"sources\": [1, 2, 6, 7] }\n          }\n        },\n        \"1.1.2_Purpose_violation\": {\n          \"1.1.2.1_Data_collection\": {\n            \"1.1.2.1.1\": { \"label\": \"Violate data minimization criteria\", \"sources\": [1, 2, 6, 7] }\n          },\n          \"1.1.2.2_Data_usage\": {\n            \"1.1.2.2.1\": { \"label\": \"Improper use of voice data\", \"sources\": [1, 2, 6, 7] }\n          }\n        },\n        \"1.1.3_Lack_of_awareness\": {\n          \"1.1.3.1\": { \"label\": \"Lack of feedback during data collection\", \"sources\": [1, 3, 4, 6, 7] },\n          \"1.1.3.2\": { \"label\": \"Lack of contextual privacy information\", \"sources\": [1, 2, 3, 4, 6, 7] },\n          \"1.1.3.3_Lack_of_notification\": {\n            \"1.1.3.3.1\": { \"label\": \"No reminder or repeated notification for user consent\", \"sources\": [1, 2, 3, 4, 6, 7] },\n            \"1.1.3.3.2\": { \"label\": \"Users not notified when data collection starts\", \"sources\": [1, 2, 6, 7] },\n            \"1.1.3.3.3\": { \"label\": \"Missing notification of unusual activities\", \"sources\": [1, 3, 4, 5, 6, 7] },\n            \"1.1.3.3.4\": { \"label\": \"No notification of data breaches\", \"sources\": [1, 3, 4, 5, 6, 7] }\n          }\n        },\n        \"1.1.4\": { \"label\": \"Privacy policies are too long and complex\", \"sources\": [2, 4, 6, 7] }\n      },\n      \"1.2_Third-party\": {\n        \"1.2.1_Third-party_selection\": {\n          \"1.2.1.1\": { \"label\": \"Unclear criteria to evaluate third-parties service before selecting\", \"sources\": [1, 3, 4, 5] }\n        },\n        \"1.2.2_Undefined_purpose\": {\n          \"1.2.2.1\": { \"label\": \"Undefined purpose in data sharing\", \"sources\": [1, 2, 3, 4, 5, 6, 7] }\n        },\n        \"1.2.3_Unclear_purpose\": {\n          \"1.2.3.1\": { \"label\": \"No clear responsibility for multi-party data handling\", \"sources\": [1, 3, 4, 5, 6, 7] }\n        },\n        \"1.2.4_Purpose_violation\": {\n          \"1.2.4.1\": { \"label\": \"Loss of policy enforcement in data sharing\", \"sources\": [1, 3, 4, 5, 6, 7] }\n        }\n      }\n    },\n    \"2_User_participations\": {\n      \"2.1_User_requests\": {\n        \"2.1.1_Data_disclosure\": {\n          \"2.1.1.1\": { \"label\": \"Users cannot track how their data is used\", \"sources\": [1, 3, 4, 6, 7] }\n        },\n        \"2.1.2_Data_deletion\": {\n          \"2.1.2.1\": { \"label\": \"Unverified data deletion\", \"sources\": [1, 3, 4, 6, 7] }\n        }\n      },\n      \"2.2_User_identification\": {\n        \"2.2.1_Direct_identification\": {\n          \"2.2.1.1\": { \"label\": \"Identify from images\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n          \"2.2.1.2\": { \"label\": \"Identify from personal data (e.g. Citizen ID)\", \"sources\": [1, 2, 3, 4, 5, 6, 7] }\n        },\n        \"2.2.2_Indirect_identification\": {\n          \"2.2.2.1_Identification_using_identifiable_data\": {\n            \"2.2.2.1.1\": { \"label\": \"Identify from personal data (Age, Postcode)\", \"sources\": [1, 2, 3, 4, 6, 7] },\n            \"2.2.2.1.2\": { \"label\": \"Identify from health information\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n            \"2.2.2.1.3\": { \"label\": \"Identify from income\", \"sources\": [1, 2, 3, 4, 6, 7] },\n            \"2.2.2.1.4\": { \"label\": \"Identify from travel route from toll rate\", \"sources\": [1, 2, 3, 4, 6, 7] },\n            \"2.2.2.1.5\": { \"label\": \"Identify from behavioral\", \"sources\": [1, 2, 3, 4, 6, 7] },\n            \"2.2.2.1.6\": { \"label\": \"Identify from repeat anonymous signature\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n            \"2.2.2.1.7\": { \"label\": \"Identify from identity disclosure in private messaging\", \"sources\": [1, 2, 3, 4, 5, 6, 7] }\n          },\n          \"2.2.2.2_Identification_from_electronic_data\": {\n            \"2.2.2.2.1\": { \"label\": \"Identify from timestamp\", \"sources\": [1, 2, 3, 4, 6, 7] },\n            \"2.2.2.2.2\": { \"label\": \"Identify from browser fingerprinting or cookies\", \"sources\": [1, 2, 3, 4, 6, 7] }\n          },\n          \"2.2.2.3_Cross-system_identity_linkage\": {\n            \"2.2.2.3.1\": { \"label\": \"Re-identification through data exporting\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n            \"2.2.2.3.2\": { \"label\": \"Privacy violation via public data integration\", \"sources\": [1, 2, 3, 4, 5, 6, 7] }\n          }\n        },\n        \"2.3_User_control\": {\n          \"2.3.1\": { \"label\": \"Lack of user control over data access\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n          \"2.3.2\": { \"label\": \"Lack of user control over data disclosure\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n          \"2.3.3\": { \"label\": \"Lack of group-based access control\", \"sources\": [1, 2, 3, 4, 5, 6, 7] }\n        }\n      }\n    },\n    \"3_Consent_&_Preference\": {\n      \"3.1_Consent\": {\n        \"3.1.1\": { \"label\": \"Lack of explicit consent\", \"sources\": [1, 2, 3, 4, 6, 7] },\n        \"3.1.2\": { \"label\": \"No consent before third-party sharing\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n        \"3.1.3\": { \"label\": \"Consent is not legally separate by purpose\", \"sources\": [1, 2, 3, 4, 6, 7] }\n      },\n      \"3.2_Preference\": {\n        \"3.2.1\": { \"label\": \"User uncontrollable function in data collection\", \"sources\": [1, 2, 3, 4, 6, 7] },\n        \"3.2.2\": { \"label\": \"Privacy preferences limited by fixed policy choices\", \"sources\": [1, 2, 3, 6, 7] },\n        \"3.2.3\": { \"label\": \"Lack control over preferences for collecting and using activity-related data\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n        \"3.2.4\": { \"label\": \"Lack of option in creating anonymous profile\", \"sources\": [1, 2, 3, 4, 6, 7] },\n        \"3.2.5\": { \"label\": \"Overwhelmed with options in personal data access\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n        \"3.2.6\": { \"label\": \"Violate user preference\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n        \"3.2.7\": { \"label\": \"Lack of preference setting options\", \"sources\": [2, 4, 6, 7] }\n      }\n    },\n    \"4_Data_processing\": {\n      \"4.1_Data_collection\": {\n        \"4.1.1\": { \"label\": \"Excessive data collection\", \"sources\": [1, 2, 3, 4, 6, 7] },\n        \"4.1.2\": { \"label\": \"Incompatible with legacy infrastructure\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n        \"4.1.3\": { \"label\": \"Improper facial data collection\", \"sources\": [1, 2, 3, 4, 5, 6, 7] }\n      },\n      \"4.2\": { \"label\": \"Lack of local control/auditability\", \"sources\": [1, 3, 4, 6, 7] },\n      \"4.3\": { \"label\": \"No notification of data viewer\", \"sources\": [1, 2, 3, 4, 6, 7] },\n      \"4.4\": { \"label\": \"Lack of warning before sharing data\", \"sources\": [1, 2, 3, 4, 5, 6, 7] }\n    },\n    \"5_Complaints\": {\n      \"5.1\": { \"label\": \"Unintended employee device tracking\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n      \"5.2\": { \"label\": \"Users cannot see full record of data use\", \"sources\": [1, 2, 3, 4, 5, 6, 7] }\n    },\n    \"6_Security\": {\n      \"6.1\": { \"label\": \"Unrestricted data access of service provider\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n      \"6.2\": { \"label\": \"Data leakage during transfer and storage\", \"sources\": [1, 2, 3, 4,  5, 6, 7] },\n      \"6.3\": { \"label\": \"System does not detect unusual or suspicious user activities\", \"sources\": [1, 3, 4, 5, 6, 7] },\n      \"6.4\": { \"label\": \"Failure to enforce access permission\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n      \"6.5\": { \"label\": \"Lack of sufficient security mechanism\", \"sources\": [1, 2, 3, 4, 5, 6, 7] },\n      \"6.6\": { \"label\": \"Inequivalent protect mechanism\", \"sources\": [3, 4, 5, 6, 7] }\n    }\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1616,
+        -256
+      ],
+      "id": "c23c5e84-1fee-432c-8320-b226aa093d2d",
+      "name": "Taxonomy JSON"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.4",
+          "mode": "list",
+          "cachedResultName": "gpt-5.4"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        544,
+        -32
+      ],
+      "id": "ea4a008c-995f-4e11-a408-7bd8d2d73931",
+      "name": "gpt4,1",
+      "credentials": {
+        "openAiApi": {
+          "id": "fdphdZouYw1f3JnD",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Fetch Taxonomy globally by Node Name\nconst taxonomyItems = $items(\"Taxonomy JSON\");\n\nif (!taxonomyItems || taxonomyItems.length === 0) {\n  return [{ json: { \"Error\": \"Can't find Taxonomy JSON. Check spelling!\" } }];\n}\n\n// Combine all taxonomy data safely\nlet combinedTaxonomy = {};\ntaxonomyItems.forEach(item => {\n    Object.assign(combinedTaxonomy, item.json.root || item.json);\n});\n\n// Build the lookup map\nconst flatTaxonomy = {};\nfunction crawl(obj) {\n  if (!obj || typeof obj !== 'object') return;\n  for (const key in obj) {\n    const value = obj[key];\n    if (value && typeof value === 'object') {\n      if (value.label) {\n        flatTaxonomy[key.trim()] = {\n          label: value.label,\n          sources: value.sources || []\n        };\n      }\n      crawl(value); // Keep digging deeper\n    }\n  }\n}\ncrawl(combinedTaxonomy);\n\n// 2. Process ONLY the unique items coming in from the connected wire\nreturn $input.all().map(item => {\n  const data = item.json;\n  \n  // Grab the ID and clean it up\n  let rawIds = data[\"Ranked_Taxonomy_IDs\"] || data[\"Ranked_Taxonomy_IDs\"] || \"\";\n  let ids = [];\n  \n  if (Array.isArray(rawIds)) {\n    ids = rawIds.map(id => String(id).trim());\n  } else if (typeof rawIds === 'string') {\n    ids = rawIds.split(',').map(id => id.trim()).filter(id => id !== \"\");\n  } else if (rawIds !== null && rawIds !== undefined) {\n    ids = [String(rawIds).trim()];\n  }\n\n  const foundLabels = [];\n  const foundSourcesList = []; // This will hold our separate arrays like [\"[1,2]\", \"[3,4]\"]\n\n  // Match our Issue IDs against the Taxonomy Map\n  ids.forEach(id => {\n    const match = flatTaxonomy[id];\n    if (match) {\n      foundLabels.push(match.label);\n      \n      // NEW LOGIC: Format the sources specifically for THIS ID\n      if (Array.isArray(match.sources)) {\n        // Sort the numbers and turn them into a string like \"[1,2,3]\"\n        let sortedSources = [...match.sources].sort((a,b) => a - b);\n        foundSourcesList.push(JSON.stringify(sortedSources));\n      } else {\n        foundSourcesList.push(\"[]\"); // Fallback if no sources exist for this ID\n      }\n    }\n  });\n\n  // 3. Output the exact final columns (including the new \"Reason\" column)\n  return {\n    json: {\n      \"Issue_ID\": data.Issue_ID || \"\",\n      \"Title\": data.Title || data.Issue_Title || \"\",\n      \"Body\": data.Body || data.Issue_Body || \"\",\n      \"Taxonomy ID\": ids.join(\", \"),\n      \"Taxonomy issue\": foundLabels.join(\", \\n\"),\n      \"PbD principle\": foundSourcesList.join(\" ; \"), \n      \"Privacy_issue\": data.Privacy_issue !== undefined ? data.Privacy_issue : (data.is_privacy_issue || false),\n      \"Reason\": data.Reason || \"\"\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -128,
+        -512
+      ],
+      "id": "1dc0c92e-d73b-4daa-830c-d7b020c01036",
+      "name": "ChatGPT4.1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n  {\n    \"model\": \"models/gemini-embedding-001\",\n    \"content\": {\n      \"parts\": [\n        {\n          \"text\": $json.text_to_embed\n        }\n      ]\n    },\n    \"taskType\": \"RETRIEVAL_DOCUMENT\"\n  }\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -160,
+        -320
+      ],
+      "id": "1ca18223-fb88-4005-861e-f83b22294e01",
+      "name": "Emedding Issue1",
+      "retryOnFail": false,
+      "credentials": {
+        "openAiApi": {
+          "id": "fdphdZouYw1f3JnD",
+          "name": "OpenAi account"
+        },
+        "googlePalmApi": {
+          "id": "HC3NSELgHyvWnLwD",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://localhost:6333/collections/pbd-ground-truth-QA-gemini/points/search",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "qdrantApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n  {\n    \"vector\": $json.embedding.values,\n    \"limit\": 10,\n    \"with_payload\": true\n  }\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        96,
+        -320
+      ],
+      "id": "e6afbf95-d6d1-4d97-bcd1-d403f7b5a957",
+      "name": "HTTP Request1",
+      "credentials": {
+        "qdrantApi": {
+          "id": "WCmDplRgQBiPAwh7",
+          "name": "QdrantApi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        672,
+        144
+      ],
+      "id": "1d5d2d58-59be-43ce-9032-23dff8c6c624",
+      "name": "Embeddings Google Gemini1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "HC3NSELgHyvWnLwD",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute Workflow’": {
+      "main": [
+        [
+          {
+            "node": "Taxonomy JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taxonomy tools": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read/Write Files from Disk": {
+      "main": [
+        [
+          {
+            "node": "Input_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input_data": {
+      "main": [
+        [
+          {
+            "node": "All_data_Issue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Cleaner_ JSON Parser",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Issue1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Issue1": {
+      "main": [
+        [
+          {
+            "node": "Emedding Issue1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "All_data_Issue": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cleaner_ JSON Parser": {
+      "main": [
+        [
+          {
+            "node": "ChatGPT4.1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taxonomy JSON": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "gpt4,1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatGPT4.1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Emedding Issue1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Format",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Taxonomy tools",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
+  "pinData": {}
+}

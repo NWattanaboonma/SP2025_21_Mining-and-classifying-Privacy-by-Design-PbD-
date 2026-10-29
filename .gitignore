@@ -1,0 +1,34 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.pem
+*.key
+App.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# large raw data (see data/README.md)
+data/raw/
+data/issues/
+*.log
+
+# build output
+dist/
+*.zip
+
+# local only - not part of the public repository
+_private/
+docs/CHECK_REPORT.md
+06_evaluation/earlier_experiment/

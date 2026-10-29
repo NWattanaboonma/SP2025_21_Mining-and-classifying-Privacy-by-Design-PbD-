@@ -1,0 +1,133 @@
+{
+  "taxonomy_title": "PbD Issues",
+  "root": {
+    "1_Notice": {
+      "1.1_Users": {
+        "1.1.1_Notice_content": {
+          "1.1.1.1_Data_collection": {
+            "1.1.1.1.1": { "label": "Unclear purpose for voice recording", "sources": [1, 2, 6, 7] },
+            "1.1.1.1.2": { "label": "Users presented with unclear agreement", "sources": [1, 6, 7] },
+            "1.1.1.1.3": { "label": "Unclear primary purpose for CCTV recording", "sources": [1, 2, 3, 6, 7] }
+          },
+          "1.1.1.2_Data_retention": {
+            "1.1.1.2.1": { "label": "Unclear retention period criteria", "sources": [1, 2, 6, 7] }
+          },
+          "1.1.1.3_Data_usage": {
+            "1.1.1.3.1": { "label": "Unclear user personal data usage", "sources": [1, 2, 6, 7] }
+          }
+        },
+        "1.1.2_Purpose_violation": {
+          "1.1.2.1_Data_collection": {
+            "1.1.2.1.1": { "label": "Violate data minimization criteria", "sources": [1, 2, 6, 7] }
+          },
+          "1.1.2.2_Data_usage": {
+            "1.1.2.2.1": { "label": "Improper use of voice data", "sources": [1, 2, 6, 7] }
+          }
+        },
+        "1.1.3_Lack_of_awareness": {
+          "1.1.3.1": { "label": "Lack of feedback during data collection", "sources": [1, 3, 4, 6, 7] },
+          "1.1.3.2": { "label": "Lack of contextual privacy information", "sources": [1, 2, 3, 4, 6, 7] },
+          "1.1.3.3_Lack_of_notification": {
+            "1.1.3.3.1": { "label": "No reminder or repeated notification for user consent", "sources": [1, 2, 3, 4, 6, 7] },
+            "1.1.3.3.2": { "label": "Users not notified when data collection starts", "sources": [1, 2, 6, 7] },
+            "1.1.3.3.3": { "label": "Missing notification of unusual activities", "sources": [1, 3, 4, 5, 6, 7] },
+            "1.1.3.3.4": { "label": "No notification of data breaches", "sources": [1, 3, 4, 5, 6, 7] }
+          }
+        },
+        "1.1.4": { "label": "Privacy policies are too long and complex", "sources": [2, 4, 6, 7] }
+      },
+      "1.2_Third-party": {
+        "1.2.1_Third-party_selection": {
+          "1.2.1.1": { "label": "Unclear criteria to evaluate third-parties service before selecting", "sources": [1, 3, 4, 5] }
+        },
+        "1.2.2_Undefined_purpose": {
+          "1.2.2.1": { "label": "Undefined purpose in data sharing", "sources": [1, 2, 3, 4, 5, 6, 7] }
+        },
+        "1.2.3_Unclear_purpose": {
+          "1.2.3.1": { "label": "No clear responsibility for multi-party data handling", "sources": [1, 3, 4, 5, 6, 7] }
+        },
+        "1.2.4_Purpose_violation": {
+          "1.2.4.1": { "label": "Loss of policy enforcement in data sharing", "sources": [1, 3, 4, 5, 6, 7] }
+        }
+      }
+    },
+    "2_User_participations": {
+      "2.1_User_requests": {
+        "2.1.1_Data_disclosure": {
+          "2.1.1.1": { "label": "Users cannot track how their data is used", "sources": [1, 3, 4, 6, 7] }
+        },
+        "2.1.2_Data_deletion": {
+          "2.1.2.1": { "label": "Unverified data deletion", "sources": [1, 3, 4, 6, 7] }
+        }
+      },
+      "2.2_User_identification": {
+        "2.2.1_Direct_identification": {
+          "2.2.1.1": { "label": "Identify from images", "sources": [1, 2, 3, 4, 5, 6, 7] },
+          "2.2.1.2": { "label": "Identify from personal data (e.g. Citizen ID)", "sources": [1, 2, 3, 4, 5, 6, 7] }
+        },
+        "2.2.2_Indirect_identification": {
+          "2.2.2.1_Identification_using_identifiable_data": {
+            "2.2.2.1.1": { "label": "Identify from personal data (Age, Postcode)", "sources": [1, 2, 3, 4, 6, 7] },
+            "2.2.2.1.2": { "label": "Identify from health information", "sources": [1, 2, 3, 4, 5, 6, 7] },
+            "2.2.2.1.3": { "label": "Identify from income", "sources": [1, 2, 3, 4, 6, 7] },
+            "2.2.2.1.4": { "label": "Identify from travel route from toll rate", "sources": [1, 2, 3, 4, 6, 7] },
+            "2.2.2.1.5": { "label": "Identify from behavioral", "sources": [1, 2, 3, 4, 6, 7] },
+            "2.2.2.1.6": { "label": "Identify from repeat anonymous signature", "sources": [1, 2, 3, 4, 5, 6, 7] },
+            "2.2.2.1.7": { "label": "Identify from identity disclosure in private messaging", "sources": [1, 2, 3, 4, 5, 6, 7] }
+          },
+          "2.2.2.2_Identification_from_electronic_data": {
+            "2.2.2.2.1": { "label": "Identify from timestamp", "sources": [1, 2, 3, 4, 6, 7] },
+            "2.2.2.2.2": { "label": "Identify from browser fingerprinting or cookies", "sources": [1, 2, 3, 4, 6, 7] }
+          },
+          "2.2.2.3_Cross-system_identity_linkage": {
+            "2.2.2.3.1": { "label": "Re-identification through data exporting", "sources": [1, 2, 3, 4, 5, 6, 7] },
+            "2.2.2.3.2": { "label": "Privacy violation via public data integration", "sources": [1, 2, 3, 4, 5, 6, 7] }
+          }
+        },
+        "2.3_User_control": {
+          "2.3.1": { "label": "Lack of user control over data access", "sources": [1, 2, 3, 4, 5, 6, 7] },
+          "2.3.2": { "label": "Lack of user control over data disclosure", "sources": [1, 2, 3, 4, 5, 6, 7] },
+          "2.3.3": { "label": "Lack of group-based access control", "sources": [1, 2, 3, 4, 5, 6, 7] }
+        }
+      }
+    },
+    "3_Consent_&_Preference": {
+      "3.1_Consent": {
+        "3.1.1": { "label": "Lack of explicit consent", "sources": [1, 2, 3, 4, 6, 7] },
+        "3.1.2": { "label": "No consent before third-party sharing", "sources": [1, 2, 3, 4, 5, 6, 7] },
+        "3.1.3": { "label": "Consent is not legally separate by purpose", "sources": [1, 2, 3, 4, 6, 7] }
+      },
+      "3.2_Preference": {
+        "3.2.1": { "label": "User uncontrollable function in data collection", "sources": [1, 2, 3, 4, 6, 7] },
+        "3.2.2": { "label": "Privacy preferences limited by fixed policy choices", "sources": [1, 2, 3, 6, 7] },
+        "3.2.3": { "label": "Lack control over preferences for collecting and using activity-related data", "sources": [1, 2, 3, 4, 5, 6, 7] },
+        "3.2.4": { "label": "Lack of option in creating anonymous profile", "sources": [1, 2, 3, 4, 6, 7] },
+        "3.2.5": { "label": "Overwhelmed with options in personal data access", "sources": [1, 2, 3, 4, 5, 6, 7] },
+        "3.2.6": { "label": "Violate user preference", "sources": [1, 2, 3, 4, 5, 6, 7] },
+        "3.2.7": { "label": "Lack of preference setting options", "sources": [2, 4, 6, 7] }
+      }
+    },
+    "4_Data_processing": {
+      "4.1_Data_collection": {
+        "4.1.1": { "label": "Excessive data collection", "sources": [1, 2, 3, 4, 6, 7] },
+        "4.1.2": { "label": "Incompatible with legacy infrastructure", "sources": [1, 2, 3, 4, 5, 6, 7] },
+        "4.1.3": { "label": "Improper facial data collection", "sources": [1, 2, 3, 4, 5, 6, 7] }
+      },
+      "4.2": { "label": "Lack of local control/auditability", "sources": [1, 3, 4, 6, 7] },
+      "4.3": { "label": "No notification of data viewer", "sources": [1, 2, 3, 4, 6, 7] },
+      "4.4": { "label": "Lack of warning before sharing data", "sources": [1, 2, 3, 4, 5, 6, 7] }
+    },
+    "5_Complaints": {
+      "5.1": { "label": "Unintended employee device tracking", "sources": [1, 2, 3, 4, 5, 6, 7] },
+      "5.2": { "label": "Users cannot see full record of data use", "sources": [1, 2, 3, 4, 5, 6, 7] }
+    },
+    "6_Security": {
+      "6.1": { "label": "Unrestricted data access of service provider", "sources": [1, 2, 3, 4, 5, 6, 7] },
+      "6.2": { "label": "Data leakage during transfer and storage", "sources": [1, 2, 3, 4,  5, 6, 7] },
+      "6.3": { "label": "System does not detect unusual or suspicious user activities", "sources": [1, 3, 4, 5, 6, 7] },
+      "6.4": { "label": "Failure to enforce access permission", "sources": [1, 2, 3, 4, 5, 6, 7] },
+      "6.5": { "label": "Lack of sufficient security mechanism", "sources": [1, 2, 3, 4, 5, 6, 7] },
+      "6.6": { "label": "Inequivalent protect mechanism", "sources": [3, 4, 5, 6, 7] }
+    }
+  }
+}

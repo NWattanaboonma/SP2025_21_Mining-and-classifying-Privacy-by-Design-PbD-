@@ -1,0 +1,424 @@
+
+--- Detailed Score Breakdown (Labels Chosen) ---
+No.   | Issue ID                       | Coder_B         | Coder_A        
+--------------------------------------------------------------------------
+1     | 1654040921                     | None            | None           
+2     | 3211941925                     | None            | None           
+3     | 2946557493                     | None            | None           
+4     | 1231663633                     | None            | None           
+5     | 2918811050                     | R54             | R54            
+6     | 1553471125                     | None            | None           
+7     | 2130616176                     | None            | None           
+8     | 2614752783                     | None            | None           
+9     | 1878704530                     | None            | None           
+10    | 1044614309                     | None            | None           
+11    | 644316520                      | R54, R57        | R57            
+12    | 982540723                      | None            | None           
+13    | 1533759880                     | None            | None           
+14    | 2337276896                     | None            | None           
+15    | 1217556271                     | None            | R23            
+16    | 589953033                      | None            | None           
+17    | 1049230641                     | None            | None           
+18    | 2140967439                     | None            | None           
+19    | 3311085591                     | None            | None           
+20    | 939533530                      | None            | None           
+21    | 1557354309                     | None            | None           
+22    | 2735379733                     | None            | None           
+23    | 2946629060                     | None            | None           
+24    | 2514230621                     | None            | None           
+25    | 313096561                      | None            | None           
+26    | 1990890076                     | None            | None           
+27    | 1775340550                     | None            | None           
+28    | 1557198769                     | None            | None           
+29    | 2946342574                     | None            | None           
+30    | 487487578                      | None            | None           
+31    | 2751351896                     | None            | None           
+32    | 445442851                      | None            | None           
+33    | 2593970810                     | None            | None           
+34    | 2514759785                     | None            | None           
+35    | 2658741348                     | None            | R56, R57       
+36    | 2776494268                     | None            | None           
+37    | 3287187532                     | None            | None           
+38    | 2946779520                     | None            | None           
+39    | 969611970                      | None            | None           
+40    | 1736234551                     | None            | None           
+41    | 876294232                      | None            | None           
+42    | 898576045                      | None            | None           
+43    | 3516790497                     | None            | None           
+44    | 3295587410                     | None            | None           
+45    | 2945089336                     | None            | None           
+46    | 2526451575                     | None            | None           
+47    | 404704116                      | None            | None           
+48    | 721704840                      | None            | None           
+49    | 2828168928                     | R12, R13, R23, R54, R55, R57 | R22, R23, R57  
+50    | 1678769944                     | None            | None           
+51    | 2022752304                     | None            | None           
+52    | 2064823565                     | None            | None           
+53    | 1615687314                     | None            | None           
+54    | 759345962                      | None            | None           
+55    | 3325892875                     | None            | None           
+56    | 750850920                      | None            | None           
+57    | 1173826113                     | None            | None           
+58    | 480695666                      | None            | None           
+59    | 3508964669                     | None            | None           
+60    | 1206088546                     | None            | None           
+61    | 2945127407                     | None            | None           
+62    | 3240332510                     | None            | None           
+63    | 2770562993                     | None            | None           
+64    | 1323414634                     | None            | None           
+65    | 1625481744                     | None            | None           
+66    | 3871216289                     | None            | None           
+67    | 3280063853                     | R57             | None           
+68    | 3848334005                     | None            | None           
+69    | 389047205                      | None            | None           
+70    | 2081611627                     | None            | None           
+71    | 448043001                      | None            | None           
+72    | 1054873448                     | None            | None           
+73    | 1761916505                     | None            | None           
+74    | 1433627812                     | None            | None           
+75    | 2761795668                     | None            | None           
+76    | 594838935                      | None            | R42            
+77    | 315469316                      | None            | None           
+78    | 3692387251                     | None            | None           
+79    | 658530418                      | None            | None           
+80    | 664062522                      | None            | None           
+81    | 529611608                      | None            | None           
+82    | 1051451931                     | None            | None           
+83    | 637699679                      | None            | None           
+84    | 2024836612                     | None            | None           
+85    | 1831507549                     | None            | None           
+86    | 2990690609                     | None            | None           
+87    | 3823650408                     | None            | None           
+88    | 988226304                      | None            | None           
+89    | 476596861                      | None            | None           
+90    | 3736310174                     | None            | None           
+91    | 2728891314                     | None            | None           
+92    | 1288298778                     | None            | None           
+93    | 1634812557                     | None            | None           
+94    | 1578927543                     | None            | None           
+95    | 1817855264                     | None            | None           
+96    | 1706024575                     | None            | None           
+97    | 2946784089                     | None            | None           
+98    | 3053239357                     | None            | None           
+99    | 2043638264                     | None            | None           
+100   | 1096705103                     | None            | None           
+101   | 2862518794                     | None            | R56, R57       
+102   | 3043605110                     | None            | None           
+103   | 2214015988                     | None            | None           
+104   | 824575711                      | None            | None           
+105   | 1805692648                     | None            | None           
+106   | 2333800066                     | None            | None           
+107   | 1902771345                     | None            | None           
+108   | 835397070                      | None            | None           
+109   | 1949924717                     | None            | None           
+110   | 2946569779                     | None            | None           
+111   | 245221873                      | None            | None           
+112   | 610668438                      | None            | None           
+113   | 1211140208                     | None            | None           
+114   | 398373722                      | None            | None           
+115   | 2945162597                     | None            | None           
+116   | 2839380788                     | None            | None           
+117   | 1782428043                     | None            | None           
+118   | 438767635                      | None            | R27, R30, R31, R34
+119   | 1197019187                     | None            | None           
+120   | 1296331528                     | None            | None           
+121   | 3781807786                     | None            | None           
+122   | 980295423                      | R10             | R9, R42        
+123   | 2241867605                     | None            | None           
+124   | 3450056208                     | None            | None           
+125   | 2862205572                     | None            | None           
+126   | 2946240624                     | None            | None           
+127   | 1916459656                     | None            | None           
+128   | 3574811810                     | None            | None           
+129   | 1828131690                     | None            | None           
+130   | 2727458392                     | None            | None           
+131   | 1904534376                     | None            | None           
+132   | 1265929103                     | None            | None           
+133   | 1321690295                     | None            | None           
+134   | 2304156083                     | None            | None           
+135   | 3681810654                     | None            | None           
+136   | 2011492671                     | None            | None           
+137   | 2109020665                     | None            | None           
+138   | 3718781784                     | None            | None           
+139   | 3237342848                     | None            | None           
+140   | 448745931                      | None            | None           
+141   | 1813617811                     | None            | None           
+142   | 1870469151                     | None            | None           
+143   | 700600534                      | None            | None           
+144   | 1960714907                     | None            | None           
+145   | 592634643                      | None            | None           
+146   | 434827880                      | None            | None           
+147   | 2271248574                     | None            | None           
+148   | 2945454893                     | None            | None           
+149   | 1504481812                     | None            | None           
+150   | 1585003959                     | None            | None           
+151   | 2410255247                     | None            | None           
+152   | 2340855218                     | None            | None           
+153   | 2336502186                     | None            | None           
+154   | 488661363                      | None            | None           
+155   | 2945292666                     | None            | None           
+156   | 687857955                      | None            | None           
+157   | 3644051276                     | None            | None           
+158   | 1700472339                     | None            | None           
+159   | 3851102094                     | None            | None           
+160   | 2945988568                     | None            | None           
+161   | 2946651261                     | None            | None           
+162   | 2250925894                     | None            | None           
+163   | 1229923870                     | None            | None           
+164   | 1081082437                     | None            | None           
+165   | 3732653030                     | None            | None           
+166   | 1524980649                     | None            | None           
+167   | 679000644                      | None            | None           
+168   | 3487131544                     | None            | None           
+169   | 448653570                      | None            | None           
+170   | 426002797                      | None            | None           
+171   | 3718312925                     | None            | None           
+172   | 3634613467                     | None            | None           
+173   | 1472298972                     | None            | None           
+174   | 2936289903                     | None            | None           
+175   | 2972566237                     | None            | None           
+176   | 963158861                      | None            | None           
+177   | 3607944051                     | None            | R9             
+178   | 2795246406                     | None            | None           
+179   | 1597116931                     | None            | None           
+180   | 1676902848                     | None            | None           
+181   | 476498478                      | None            | None           
+182   | 2236600711                     | None            | None           
+183   | 1746128580                     | None            | None           
+184   | 1433399140                     | None            | None           
+185   | 3073425649                     | None            | None           
+186   | 1479735404                     | None            | None           
+187   | 705417541                      | None            | None           
+188   | 2034498616                     | None            | None           
+189   | 2946500083                     | None            | None           
+190   | 1724775014                     | None            | None           
+191   | 2400842877                     | None            | None           
+192   | 2158848931                     | None            | None           
+193   | 2051462095                     | None            | None           
+194   | 874332456                      | None            | None           
+195   | 3104029742                     | None            | R56, R57       
+196   | 3349477490                     | None            | None           
+197   | 1115620641                     | None            | None           
+198   | 569529407                      | None            | None           
+199   | 706731975                      | None            | R9             
+200   | 1697555124                     | None            | None           
+201   | 402741834                      | None            | None           
+202   | 3651230136                     | None            | None           
+203   | 1525453283                     | R55, R57        | None           
+204   | 3344926695                     | None            | None           
+205   | 1670087114                     | None            | None           
+206   | 1327785391                     | None            | None           
+207   | 633163320                      | None            | None           
+208   | 2880374651                     | R57             | None           
+209   | 2128703146                     | None            | None           
+210   | 2049777057                     | None            | None           
+211   | 1253911499                     | None            | None           
+212   | 1217278498                     | None            | None           
+213   | 1506845308                     | R57             | None           
+214   | 2744504081                     | None            | None           
+215   | 2946398767                     | None            | None           
+216   | 2024319427                     | None            | None           
+217   | 510611202                      | R17, R38        | None           
+218   | 3749755601                     | None            | None           
+219   | 2336814386                     | None            | None           
+220   | 848746202                      | None            | None           
+221   | 556903181                      | None            | None           
+222   | 1206470272                     | None            | None           
+223   | 487857235                      | None            | None           
+224   | 1507579677                     | None            | None           
+225   | 1148778238                     | None            | None           
+226   | 2076373853                     | None            | None           
+227   | 635309633                      | None            | None           
+228   | 1022169905                     | None            | None           
+229   | 2864575093                     | R23, R28        | None           
+230   | 3046300035                     | None            | None           
+231   | 1259475894                     | None            | None           
+232   | 2360506350                     | None            | None           
+233   | 2875715344                     | None            | None           
+234   | 2946586822                     | None            | None           
+235   | 985369910                      | None            | None           
+236   | 2776429518                     | None            | None           
+237   | 182553105                      | None            | None           
+238   | 2385105309                     | None            | None           
+239   | 1977792131                     | None            | None           
+240   | 3623685845                     | None            | None           
+241   | 321882393                      | None            | None           
+242   | 484927278                      | None            | None           
+243   | 1391815973                     | None            | None           
+244   | 1997910600                     | None            | None           
+245   | 1694809844                     | None            | None           
+246   | 284311568                      | None            | None           
+247   | 3725759802                     | None            | None           
+248   | 1418457563                     | None            | None           
+249   | 3860790599                     | None            | None           
+250   | 204687758                      | None            | None           
+251   | 2222600510                     | None            | R22            
+252   | 1652159486                     | None            | None           
+253   | 938002006                      | None            | None           
+254   | 3849203165                     | None            | None           
+255   | 1895541407                     | None            | None           
+256   | 1379867271                     | None            | None           
+257   | 1867937739                     | None            | None           
+258   | 3844651088                     | None            | None           
+259   | 1158499236                     | None            | None           
+260   | 2719181238                     | None            | None           
+261   | 335948668                      | None            | None           
+262   | 1799242439                     | None            | None           
+263   | 1664158824                     | None            | None           
+264   | 2489160765                     | None            | None           
+265   | 2945050908                     | None            | None           
+266   | 2946031408                     | None            | None           
+267   | 1514734813                     | None            | None           
+268   | 428961398                      | None            | None           
+269   | 628425657                      | None            | None           
+270   | 1279090626                     | None            | None           
+271   | 3070903139                     | None            | None           
+272   | 786465984                      | None            | None           
+273   | 927671574                      | None            | None           
+274   | 3255105511                     | None            | None           
+275   | 225464739                      | None            | None           
+276   | 2947043513                     | None            | None           
+277   | 3275195653                     | R10, R23        | R23, R31, R37, R57
+278   | 2285897527                     | None            | None           
+279   | 3756317823                     | None            | None           
+280   | 2621857374                     | None            | None           
+281   | 2605725692                     | None            | R56, R57       
+282   | 2553577140                     | None            | None           
+283   | 755167424                      | None            | None           
+284   | 651871704                      | None            | None           
+285   | 3626214516                     | None            | R22, R56, R57  
+286   | 3300576119                     | None            | None           
+287   | 2945294638                     | None            | None           
+288   | 327725957                      | None            | None           
+289   | 582933455                      | None            | None           
+290   | 2716310067                     | None            | None           
+291   | 2270777913                     | None            | None           
+292   | 1192275735                     | None            | None           
+293   | 3597682889                     | None            | None           
+294   | 1558683258                     | None            | None           
+295   | 1895886666                     | None            | None           
+296   | 1149886160                     | None            | None           
+297   | 3323744307                     | None            | None           
+298   | 2859225863                     | None            | None           
+299   | 2846813577                     | None            | None           
+300   | 2907713616                     | None            | None           
+301   | 3001664916                     | None            | None           
+302   | 831038915                      | R54             | None           
+303   | 1293851629                     | None            | None           
+304   | 2298875491                     | None            | None           
+305   | 3683768815                     | None            | None           
+306   | 1083264049                     | None            | None           
+307   | 334828109                      | None            | None           
+308   | 1586538745                     | None            | None           
+309   | 2444898894                     | None            | None           
+310   | 3744222049                     | None            | None           
+311   | 2095984287                     | None            | None           
+312   | 396234874                      | None            | None           
+313   | 2473821659                     | R13, R15, R38   | None           
+314   | 1718200774                     | None            | None           
+315   | 2042553058                     | None            | None           
+316   | 1964359695                     | None            | None           
+317   | 1748348041                     | None            | None           
+318   | 3483309669                     | None            | None           
+319   | 263870420                      | None            | None           
+320   | 1980841458                     | None            | None           
+321   | 3419811146                     | None            | None           
+322   | 418507934                      | None            | None           
+323   | 1882253263                     | None            | None           
+324   | 2351775382                     | None            | None           
+325   | 2102469905                     | None            | None           
+326   | 1213419595                     | None            | None           
+327   | 262245242                      | None            | None           
+328   | 2639202059                     | None            | None           
+329   | 2819107189                     | None            | None           
+330   | 1605139559                     | None            | None           
+331   | 262290327                      | None            | None           
+332   | 2627117436                     | None            | None           
+333   | 459054175                      | None            | None           
+334   | 2397104690                     | None            | None           
+335   | 214446419                      | None            | None           
+336   | 285202850                      | None            | None           
+337   | 2010255630                     | None            | None           
+338   | 691614822                      | None            | None           
+339   | 998251728                      | None            | None           
+340   | 3870558653                     | None            | None           
+341   | 2152706135                     | None            | None           
+342   | 1714581253                     | None            | None           
+343   | 658487062                      | None            | None           
+344   | 342494099                      | None            | None           
+345   | 453670068                      | None            | None           
+346   | 1340518573                     | None            | None           
+347   | 638787623                      | None            | None           
+348   | 2229256577                     | None            | None           
+349   | 1820603335                     | None            | None           
+350   | 2233262684                     | None            | None           
+351   | 3501926283                     | None            | None           
+352   | 2510408365                     | None            | None           
+353   | 375085861                      | None            | None           
+354   | 405027870                      | None            | None           
+355   | 1848362934                     | None            | None           
+356   | 2965079413                     | None            | None           
+357   | 1031079288                     | None            | None           
+358   | 374614885                      | R57             | None           
+359   | 1561455892                     | None            | None           
+360   | 875590959                      | None            | None           
+361   | 886787630                      | None            | None           
+362   | 2527812181                     | None            | None           
+363   | 2102950269                     | None            | None           
+364   | 3471546305                     | None            | None           
+365   | 3793429493                     | None            | None           
+366   | 975443534                      | None            | None           
+367   | 1070126899                     | None            | None           
+368   | 1889324427                     | None            | None           
+369   | 1700667930                     | None            | None           
+370   | 1682005261                     | None            | None           
+371   | 394048503                      | None            | None           
+372   | 2751871411                     | None            | None           
+373   | 1372165164                     | None            | None           
+374   | 971188146                      | None            | None           
+375   | 1062536533                     | None            | None           
+376   | 1288165028                     | None            | None           
+377   | 2233668286                     | None            | None           
+378   | 495620166                      | None            | None           
+379   | 1361493868                     | None            | None           
+380   | 2860544217                     | None            | None           
+381   | 1590600483                     | None            | None           
+382   | 367595752                      | None            | None           
+383   | 3873909052                     | None            | None           
+384   | 855734402                      | None            | None           
+
+
+--- Issues with Disagreements ---
+No.   | Issue ID                       | Coder_B         | Coder_A        
+--------------------------------------------------------------------------
+11    | 644316520                      | R54, R57        | R57            
+15    | 1217556271                     | None            | R23            
+35    | 2658741348                     | None            | R56, R57       
+49    | 2828168928                     | R12, R13, R23, R54, R55, R57 | R22, R23, R57  
+67    | 3280063853                     | R57             | None           
+76    | 594838935                      | None            | R42            
+101   | 2862518794                     | None            | R56, R57       
+118   | 438767635                      | None            | R27, R30, R31, R34
+122   | 980295423                      | R10             | R9, R42        
+177   | 3607944051                     | None            | R9             
+195   | 3104029742                     | None            | R56, R57       
+199   | 706731975                      | None            | R9             
+203   | 1525453283                     | R55, R57        | None           
+208   | 2880374651                     | R57             | None           
+213   | 1506845308                     | R57             | None           
+217   | 510611202                      | R17, R38        | None           
+229   | 2864575093                     | R23, R28        | None           
+251   | 2222600510                     | None            | R22            
+277   | 3275195653                     | R10, R23        | R23, R31, R37, R57
+281   | 2605725692                     | None            | R56, R57       
+285   | 3626214516                     | None            | R22, R56, R57  
+302   | 831038915                      | R54             | None           
+313   | 2473821659                     | R13, R15, R38   | None           
+358   | 374614885                      | R57             | None           
+
+
+--- Overall Summary ---
+Total positions in agreement: 21841
+Total positions NOT in agreement: 47
+Total positions compared: 21888
+Overall Positional Percent Agreement: 99.79%

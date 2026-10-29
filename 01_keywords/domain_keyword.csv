@@ -1,0 +1,121 @@
+﻿Domain,Keyword
+Government,gdpr-public
+Government,e-government
+Government,open-gov
+Government,citizen-engagement
+Government,administrative
+Government,gov-api
+Government,government
+Government,citizen-feedback
+Government,law-enforcement
+Government,digital-signature
+Government,govtech
+Government,gov-cloud
+Government,citizen-id
+Government,digital-democracy
+Government,civil-registry
+Government,land-registry
+Government,public-safety
+Government,grant-management
+Government,citizen-portal
+Government,public-works
+Government,public-contract
+Government,open-legislation
+Government,e-service
+Government,national-id
+Government,legislative-data
+Government,civic-hacking
+Government,public-records
+Government,social-welfare
+Government,public-library
+Government,e-procurement
+Health,ehr-system
+Health,digital-health
+Health,health-informatics
+Health,hospital-system
+Health,patient-data
+Health,health-record
+Health,medical-records
+Health,healthcare-api
+Health,health-platform
+Health,smart-hospital
+Health,personal-health
+Health,health-analytics
+Health,hospital-management
+Health,hipaa-compliant
+Health,healthcare-it
+Health,patient-management
+Health,medical-device
+Health,patient-monitoring
+Health,physician-portal
+Health,medical-billing
+Health,telemedicine
+Health,medical-imaging
+Health,medical-research
+Health,remote-patient
+Health,teleradiology
+Health,medical-sensor
+Health,patient-dashboard
+Health,medical-simulation
+Health,health-iot
+Health,telehealth
+Internet of Things (IoT),smart-device
+Internet of Things (IoT),smart-home
+Internet of Things (IoT),home-automation
+Internet of Things (IoT),web-of-things
+Internet of Things (IoT),iot-device
+Internet of Things (IoT),smart-appliance
+Internet of Things (IoT),wearable-device
+Internet of Things (IoT),smart-sensor
+Internet of Things (IoT),connected-car
+Internet of Things (IoT),industrial-iot
+Internet of Things (IoT),smart-meter
+Internet of Things (IoT),industrial-automation
+Internet of Things (IoT),gateway-device
+Internet of Things (IoT),internet-of-things
+Internet of Things (IoT),iot-dashboard
+Internet of Things (IoT),energy-monitor
+Internet of Things (IoT),smart-building
+Internet of Things (IoT),smart-grid
+Internet of Things (IoT),nb-iot
+Internet of Things (IoT),device-provisioning
+Internet of Things (IoT),microcontroller
+Internet of Things (IoT),iot-sensor
+Internet of Things (IoT),wearable-sensor
+Internet of Things (IoT),temperature-sensor
+Internet of Things (IoT),smart-switch
+Internet of Things (IoT),iot-gateway
+Internet of Things (IoT),cayenne-iot
+Internet of Things (IoT),gps-logger
+Internet of Things (IoT),smart-mirror
+Internet of Things (IoT),raspberry-pi
+General,anonymization
+General,de-identification
+General,sensitive-data
+General,data-minimization
+General,pseudonymization
+General,data-protection
+General,personally-identifiable-information
+General,subject-access-request
+General,confidentiality
+General,access-control
+General,data-leakage
+General,privacy
+General,information-disclosure
+General,data-breach
+General,privacy-policy
+General,gdpr
+General,consent
+General,vulnerability
+General,leakage
+General,data-retention
+General,preference
+General,compliance
+General,PII
+General,ccpa
+General,HIPAA
+General,privacy-preserving
+General,data-obfuscation
+General,subject-rights
+General,personal-information
+General,complaint

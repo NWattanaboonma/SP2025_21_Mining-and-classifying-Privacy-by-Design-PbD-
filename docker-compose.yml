@@ -1,0 +1,27 @@
+# Local services for the RAG pipeline (see docs/SETUP_QDRANT.md and docs/SETUP_N8N.md)
+#
+#   docker compose up -d qdrant        # vector database only
+#   docker compose up -d               # vector database + n8n
+#
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: pbd-qdrant
+    ports:
+      - "6333:6333"   # REST API + dashboard (http://localhost:6333/dashboard)
+      - "6334:6334"   # gRPC
+    volumes:
+      - ./qdrant_storage:/qdrant/storage
+    restart: unless-stopped
+
+  # Optional: skip this service if you already run n8n another way (desktop app / npx).
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: pbd-n8n
+    ports:
+      - "5678:5678"   # http://localhost:5678
+    environment:
+      - GENERIC_TIMEZONE=Asia/Bangkok
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+    restart: unless-stopped
