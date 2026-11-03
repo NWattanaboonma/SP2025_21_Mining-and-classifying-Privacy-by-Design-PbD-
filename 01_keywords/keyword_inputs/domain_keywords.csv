@@ -1,0 +1,301 @@
+﻿Domain,Keyword
+Government,access-to-information
+Government,administrative-data
+Government,affordable-housing
+Government,benefits-calculator
+Government,biometric-passport
+Government,border-control
+Government,budget-transparency
+Government,building-permit
+Government,cad-dispatch
+Government,campaign-finance
+Government,census-data
+Government,citizen-engagement
+Government,citizen-feedback
+Government,citizen-id
+Government,citizen-portal
+Government,civic-hacking
+Government,civic-tech
+Government,civil-registry
+Government,community-policing
+Government,court-case-management
+Government,crime-mapping
+Government,customs-declaration
+Government,digital-democracy
+Government,digital-id
+Government,digital-signature-gov
+Government,disaster-response
+Government,driver-license
+Government,e-government
+Government,e-id
+Government,e-justice
+Government,e-parliament
+Government,e-petition
+Government,e-procurement
+Government,e-residency
+Government,e-service
+Government,e-tax
+Government,e-toll
+Government,e-voting
+Government,election-data
+Government,election-monitoring
+Government,electronic-health-card
+Government,emergency-alert
+Government,emergency-response
+Government,fiscal-data
+Government,foia-request
+Government,gdpr-public-sector
+Government,gov-api
+Government,gov-cloud
+Government,government-gateway
+Government,govtech
+Government,grant-management
+Government,immigration-processing
+Government,income-verification
+Government,judicial-records
+Government,land-registry
+Government,law-enforcement
+Government,legal-aid
+Government,legislative-tracker
+Government,license-plate-recognition
+Government,local-council
+Government,municipal-budget
+Government,national-archive
+Government,national-id
+Government,national-insurance
+Government,open-data-portal
+Government,open-gov
+Government,open-legislation
+Government,parking-enforcement
+Government,parliamentary-data
+Government,passport-control
+Government,pension-management
+Government,permit-application
+Government,police-dispatch
+Government,political-transparency
+Government,polling-station
+Government,property-tax
+Government,public-consultation
+Government,public-housing
+Government,public-library
+Government,public-records
+Government,public-safety
+Government,public-transport-data
+Government,public-works
+Government,regulatory-compliance
+Government,road-tolling
+Government,school-district
+Government,social-security
+Government,social-welfare
+Government,state-budget
+Government,tax-filing
+Government,town-hall
+Government,traffic-management
+Government,transparency-portal
+Government,urban-planning
+Government,vehicle-registration
+Government,voter-registration
+Government,voting-machine
+Government,waste-management
+Government,welfare-check
+Government,zoning-map
+Health,bioinformatics-pipeline
+Health,blood-pressure-monitor
+Health,clinical-decision-support
+Health,clinical-trial
+Health,covid-tracker
+Health,dicom-server
+Health,dicom-viewer
+Health,diet-tracker
+Health,digital-health
+Health,disease-surveillance
+Health,dna-sequencing
+Health,doctor-appointment
+Health,drug-dosage
+Health,drug-interaction
+Health,ehr-system
+Health,electronic-prescription
+Health,emergency-room
+Health,fhir-api
+Health,fhir-server
+Health,fitness-tracker-health
+Health,food-label-scanner
+Health,genomic-analysis
+Health,glucose-monitor
+Health,health-analytics
+Health,health-chatbot
+Health,health-coaching
+Health,health-informatics
+Health,health-insurance-portability
+Health,health-iot
+Health,health-platform
+Health,health-record
+Health,healthcare-analytics
+Health,healthcare-provider
+Health,heart-rate-monitor
+Health,hipaa-compliant
+Health,hl7-interface
+Health,hl7-v2
+Health,home-care
+Health,hospital-bed-management
+Health,hospital-management
+Health,hospital-system
+Health,icd-10
+Health,insulin-pump
+Health,laboratory-information
+Health,loinc-codes
+Health,medical-billing
+Health,medical-device
+Health,medical-diagnosis
+Health,medical-history
+Health,medical-image-processing
+Health,medical-imaging
+Health,medical-ontology
+Health,medical-physics
+Health,medical-record
+Health,medical-research
+Health,medical-sensor
+Health,medical-simulation
+Health,medical-transcription
+Health,medication-adherence
+Health,medication-management
+Health,medication-reminder
+Health,medication-tracker
+Health,mental-health-app
+Health,mhealth
+Health,nutri-score
+Health,nutrition-assistant
+Health,nutrition-facts
+Health,open-emr
+Health,open-food-facts
+Health,open-mhealth
+Health,openmrs
+Health,orthanc
+Health,pacs-system
+Health,patient-dashboard
+Health,patient-data
+Health,patient-engagement
+Health,patient-management
+Health,patient-monitoring
+Health,patient-portal
+Health,personal-health-record
+Health,pharmacy-management
+Health,phr-system
+Health,physician-tools
+Health,public-health-surveillance
+Health,radiology-report
+Health,remote-monitoring
+Health,remote-patient-monitoring
+Health,smart-hospital
+Health,snomed-ct
+Health,speech-therapy
+Health,symptom-checker
+Health,telehealth
+Health,telemedicine
+Health,telemonitoring
+Health,teleradiology
+Health,vaccine-tracker
+Health,vital-signs
+Health,wearable-health
+Health,wellness-tracker
+Health,x-ray-analysis
+Internet of Things (IoT),6lowpan
+Internet of Things (IoT),activity-recognition
+Internet of Things (IoT),adafruit-io
+Internet of Things (IoT),arduino-iot
+Internet of Things (IoT),asset-tracking
+Internet of Things (IoT),beacon-technology
+Internet of Things (IoT),ble-beacon
+Internet of Things (IoT),ble-scanner
+Internet of Things (IoT),bluetooth-low-energy
+Internet of Things (IoT),blynk-library
+Internet of Things (IoT),car-finder
+Internet of Things (IoT),cayenne-iot
+Internet of Things (IoT),coap-protocol
+Internet of Things (IoT),connected-car
+Internet of Things (IoT),connected-home
+Internet of Things (IoT),device-provisioning
+Internet of Things (IoT),dht11-sensor
+Internet of Things (IoT),dht22-sensor
+Internet of Things (IoT),domotics
+Internet of Things (IoT),edge-computing
+Internet of Things (IoT),energy-consumption
+Internet of Things (IoT),energy-monitor
+Internet of Things (IoT),esp32-project
+Internet of Things (IoT),esp8266
+Internet of Things (IoT),esphome
+Internet of Things (IoT),firmware-ota
+Internet of Things (IoT),gateway-device
+Internet of Things (IoT),geofencing
+Internet of Things (IoT),gps-logger
+Internet of Things (IoT),gps-tracker
+Internet of Things (IoT),gym-tracker
+Internet of Things (IoT),home-assistant
+Internet of Things (IoT),home-automation
+Internet of Things (IoT),home-bridge
+Internet of Things (IoT),home-energy-management
+Internet of Things (IoT),ibeacon
+Internet of Things (IoT),indoor-localization
+Internet of Things (IoT),indoor-navigation
+Internet of Things (IoT),indoor-positioning
+Internet of Things (IoT),industrial-internet
+Internet of Things (IoT),industrial-iot
+Internet of Things (IoT),internet-of-things
+Internet of Things (IoT),iot-analytics
+Internet of Things (IoT),iot-architecture
+Internet of Things (IoT),iot-cloud
+Internet of Things (IoT),iot-dashboard
+Internet of Things (IoT),iot-device
+Internet of Things (IoT),iot-edge
+Internet of Things (IoT),iot-framework
+Internet of Things (IoT),iot-gateway
+Internet of Things (IoT),iot-platform
+Internet of Things (IoT),iot-security
+Internet of Things (IoT),iot-sensor
+Internet of Things (IoT),lorawan
+Internet of Things (IoT),lpwan
+Internet of Things (IoT),machine-to-machine
+Internet of Things (IoT),matter-protocol
+Internet of Things (IoT),microcontroller
+Internet of Things (IoT),mqtt-broker
+Internet of Things (IoT),mqtt-client
+Internet of Things (IoT),mqtt-protocol
+Internet of Things (IoT),nb-iot
+Internet of Things (IoT),nfc-reader
+Internet of Things (IoT),nodemcu
+Internet of Things (IoT),openhab
+Internet of Things (IoT),particle-photon
+Internet of Things (IoT),raspberry-pi-iot
+Internet of Things (IoT),rfid-scanner
+Internet of Things (IoT),rfid-tag
+Internet of Things (IoT),rfid-tracking
+Internet of Things (IoT),scada-system
+Internet of Things (IoT),sensortag
+Internet of Things (IoT),smart-appliance
+Internet of Things (IoT),smart-building
+Internet of Things (IoT),smart-bulb
+Internet of Things (IoT),smart-device
+Internet of Things (IoT),smart-grid
+Internet of Things (IoT),smart-home
+Internet of Things (IoT),smart-lighting
+Internet of Things (IoT),smart-lock
+Internet of Things (IoT),smart-meter
+Internet of Things (IoT),smart-mirror
+Internet of Things (IoT),smart-office
+Internet of Things (IoT),smart-plug
+Internet of Things (IoT),smart-sensor
+Internet of Things (IoT),smart-switch
+Internet of Things (IoT),smart-thermostat
+Internet of Things (IoT),smart-watch-app
+Internet of Things (IoT),tasmota
+Internet of Things (IoT),temperature-monitor
+Internet of Things (IoT),thingsboard
+Internet of Things (IoT),vehicle-tracking
+Internet of Things (IoT),wearable-device
+Internet of Things (IoT),wearable-sensor
+Internet of Things (IoT),web-of-things
+Internet of Things (IoT),wifi-positioning
+Internet of Things (IoT),wireless-sensor-network
+Internet of Things (IoT),zigbee-bridge
+Internet of Things (IoT),zigbee2mqtt
+Internet of Things (IoT),zwave-controller

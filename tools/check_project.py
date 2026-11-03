@@ -68,7 +68,7 @@ SECRET_PATTERNS = {
     "Hardcoded key assignment": r"""(?i)(api[_-]?key|secret|token)\s*[=:]\s*["'][A-Za-z0-9_\-]{24,}["']""",
 }
 FORBIDDEN_FILES = ["*.pem", "*.key", "*.p12", "*.pfx", "App.env", "id_rsa*"]   # .env is allowed locally (see below)
-TEXT_SUFFIXES = {".py", ".md", ".txt", ".json", ".yml", ".yaml", ".csv", ".env", ".example",
+TEXT_SUFFIXES = {".py", ".ipynb", ".md", ".txt", ".json", ".yml", ".yaml", ".csv", ".env", ".example",
                  ".toml", ".cfg", ".ini", ".sh", ""}
 SKIP_DIRS = {".git", "__pycache__", ".venv", "venv", "node_modules", "qdrant_storage", "n8n_data", "_n8n_export_all", "dist"}
 LOCAL_SECRET_FILES = {".env"}   # your real keys - allowed on your machine, never scanned or shipped
@@ -173,7 +173,7 @@ def check_public_release():
     import zipfile
     personal = re.compile(r"[A-Za-z]:\\{1,2}Users\\{1,2}(?!<|YOUR_)[A-Za-z0-9._-]+\\{1,2}")
     onedrive = re.compile(r"d\.docs\.live\.net/[0-9a-f]{8,}")
-    code_suffixes = {".py", ".md", ".yml", ".yaml", ".example", ".toml", ".cfg", ".ini", ".sh", ".bat", ".ps1"}
+    code_suffixes = {".py", ".ipynb", ".md", ".yml", ".yaml", ".example", ".toml", ".cfg", ".ini", ".sh", ".bat", ".ps1"}
     hits = []
     for p in files():
         rel = p.relative_to(ROOT)
@@ -329,7 +329,7 @@ def check_open_items():
     wanted = {
         "UMAP / centroid keyword script (Fig 5.2-5.3)": "umap",
     }
-    names = [p.name.lower() for p in files("*.py") if p.name != "check_project.py"]
+    names = [p.name.lower() for p in list(files("*.py")) + list(files("*.ipynb")) if p.name != "check_project.py"]
     missing = [label for label, key in wanted.items() if not any(key in n for n in names)]
     add("WARN" if missing else "PASS", "To-do", "Scripts that were missing from the original files",
         "still missing: " + ", ".join(missing) if missing else "all present")

@@ -1,0 +1,8 @@
+[
+  { "Domain": "Government",
+    "Description" : "This domain encompasses public sector services, processes, and functions that directly impact citizens or legal entities on a large scale."  },
+  { "Domain": "Health" ,
+     "Description" : "This domain includes case studies focused on the healthcare sector, including systems for hospital management, patient data records (EHRs), and other digital health technologies that handle sensitive health data."},
+  { "Domain": "Internet of Things (IoT)" ,
+  "Description": "This domain covers interconnected devices and systems designed for personal convenience, self-monitoring, and automating parts of daily life. "}
+]

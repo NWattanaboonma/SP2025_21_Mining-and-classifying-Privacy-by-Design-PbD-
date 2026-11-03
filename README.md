@@ -137,6 +137,10 @@ input file name (or other values) when started.
 - `01_keywords/keyword_generation_prompt.md` - the Gemini prompt used to generate 100 keywords per domain.
 - `01_keywords/Keyword_domain.md` - final keyword lists (top 30 per domain, picked by cosine similarity to the domain centroid).
 - `convert_md_to_csv.py` - turns the markdown lists into a CSV.
+- `keyword_clustering_umap.ipynb` - embeds the domain descriptions and keywords (`all-MiniLM-L6-v2`, runs locally, no API key),
+  projects them with UMAP and selects the top 30 keywords per domain by cosine similarity to the domain centroid.
+  Inputs in `keyword_inputs/`; the figures from the original run are in `figures/` (report Figures 5.2 and 5.3).
+  Extra libraries: `pip install sentence-transformers umap-learn`.
 
 ### 02 - Collect repositories  (RQ2, Step 2.1-2.3)
 Search GitHub for repositories matching the keywords (stars >= 10, updated after 24 May 2016 = GDPR date). A recursive date-slicing
@@ -234,6 +238,6 @@ Take-aways from the report:
 - **Taxonomy embedding.** The OpenAI taxonomy collection uses `text-embedding-3-large` shortened to 1,536 dimensions; the ground-truth collection uses the full 3,072.
 - **Excel header rows.** `Ground_data.xlsx` and `Testset.xlsx` have 6 blank/meta rows above the header (the scripts read with `header=6`).
 - **Workflow ID 3 (`Cohere_Model_GPT4.1`)** was saved after the run in a "re-process results" wiring: the file reader feeds the result parser instead of the issue loop. To re-run it, reconnect `Read/Write Files from Disk` -> `Input_data` (details in `05_rag_pipeline/n8n/WORKFLOWS.md`).
-- **Missing from the original files:** the UMAP/centroid script behind Figures 5.2-5.3. Its output (the figures) is in the report; only the script is absent. The 80/20 split and the sample size (385) were simple one-off steps (random split; standard sample-size calculator) and have no script.
+- **One-off steps without a script.** The 80/20 split was a simple random split and the sample size (385) came from a standard sample-size calculator.
 - **Large raw data** (repositories and all collected issues) is not in this folder - it is on Google Drive: [Data_Final](https://drive.google.com/drive/folders/1FonTJTjPpYDcZgAXEywn3yEw-WoVjkAl?usp=sharing) (view only). Details in [`data/README.md`](data/README.md).
 - Several scripts keep their original configuration constants at the top (e.g. `MIN_STARS`, `ACTIVE_SINCE`, input/output folder names) - edit these there.

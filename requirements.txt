@@ -6,6 +6,10 @@ openpyxl>=3.1
 xlsxwriter>=3.1
 python-dotenv>=1.0
 
+# Step 01 (optional) - keyword clustering notebook (installs PyTorch, large)
+# sentence-transformers>=2.2
+# umap-learn>=0.5
+
 # Step 03 - language filtering
 langdetect>=1.0.9
 

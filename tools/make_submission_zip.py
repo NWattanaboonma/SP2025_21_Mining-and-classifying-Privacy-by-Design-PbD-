@@ -41,7 +41,7 @@ SECRET_PATTERNS = {
     "Private key": r"-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----",
     "Key assigned in code": r"""(?i)(api[_-]?key|secret|token|password)\s*[=:]\s*["'][A-Za-z0-9_\-]{24,}["']""",
 }
-TEXT_SUFFIXES = {".py", ".md", ".txt", ".json", ".yml", ".yaml", ".csv", ".toml", ".cfg", ".ini",
+TEXT_SUFFIXES = {".py", ".ipynb", ".md", ".txt", ".json", ".yml", ".yaml", ".csv", ".toml", ".cfg", ".ini",
                  ".sh", ".bat", ".ps1", ".js", ".ts", ".html", ".example", ""}
 SELF = {"make_submission_zip.py", "check_project.py"}   # these files contain the patterns on purpose
 
@@ -51,7 +51,7 @@ PERSONAL_PATTERNS = {
     "Personal Windows path": r"[A-Za-z]:\\{1,2}Users\\{1,2}(?!<|YOUR_)[A-Za-z0-9._-]+\\{1,2}",
     "OneDrive account path": r"d\.docs\.live\.net/[0-9a-f]{8,}",
 }
-CODE_SUFFIXES = {".py", ".md", ".yml", ".yaml", ".example", ".toml", ".cfg", ".ini", ".sh", ".bat", ".ps1"}
+CODE_SUFFIXES = {".py", ".ipynb", ".md", ".yml", ".yaml", ".example", ".toml", ".cfg", ".ini", ".sh", ".bat", ".ps1"}
 OFFICE_SUFFIXES = {".xlsx", ".xlsm", ".docx", ".pptx"}
 
 
