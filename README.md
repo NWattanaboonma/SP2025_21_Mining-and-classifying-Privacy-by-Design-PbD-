@@ -168,8 +168,11 @@ Downloading ~680k issues takes many hours and is limited by the GitHub rate limi
 ### 04 - Annotation  (RQ2, Step 3)
 1. `1_random_sample_issues.py` *(interactive)* - stratified random sample (385 issues in total).
 2. `2_check_sample_duplicates.py` - sanity check.
-3. Two coders annotate independently in Excel (1 = sub-category applies, 0 = not). Results: `A2_No_General.csv`, `Test_data_With_keyword.csv`.
-4. `3_percent_agreement.py` - inter-rater reliability. Result in the report: **99.77 %** agreement over 23,100 positions (385 issues x 60 sub-categories).
+3. Two coders (`Coder_A`, `Coder_B`) annotate independently in Excel (1 = sub-category applies, 0 = not).
+   **Final annotation file: `Test_data_With_keyword_60.csv`** (385 issues x 60 sub-categories).
+   `A2_No_General.csv` and `Test_data_With_keyword.csv` are earlier annotation rounds (57 sub-categories).
+4. `3_percent_agreement.py` - inter-rater reliability on the final file. Result: `agreement_results_Test_data_With_keyword_Final.txt`
+   = **99.77 %** agreement over 23,100 positions (report Section 5.2.3). The other `agreement_results_*.txt` files belong to the earlier rounds.
    Disagreements were then resolved by discussion, giving the final ground truth.
 
 ### 05 - RAG pipeline  (RQ3)
